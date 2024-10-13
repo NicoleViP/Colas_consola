@@ -45,10 +45,11 @@ namespace Colas_consola
             Nodo actual = pri;
             while (actual != null)
             {
-                if (actual.Estatura == est)
+                if (actual.Estatura == est) return true;
+
                     actual = actual.Siguiente;
-            }
-            return true;
+            } 
+            return false;
         }
         public void Modificar(double estact, double estanue)
         {
@@ -63,12 +64,16 @@ namespace Colas_consola
                 actual = actual.Siguiente;
             }
         }
-        public void Eliminar(double est)
+        public void Eliminar()
         {
-            if (pri == null) 
-                Console.WriteLine ("La cola está vacía.");
-            else pri = pri.Siguiente;
-            cantidad--;
+            if (pri == null)
+                Console.WriteLine("La cola está vacía.");
+            else
+            {
+                pri = pri.Siguiente;
+                Console.WriteLine("Número desencolado.");
+            }
+                cantidad--;
         }
         public void Listar()
         {
@@ -89,52 +94,48 @@ namespace Colas_consola
         }
         public int Contar()
         {
-            Nodo actual = pri;
-            double suma = 0;
-
-            if (actual != null)
+            if (pri == null)
             {
-                cantidad++;
-                suma += actual.Estatura;
+                Console.WriteLine("Cola vacía");
             }
-            else Console.WriteLine("Cola vacía.");
             return cantidad;
         }
-
-        /* public void Contar()
-        {   
-            NODO actual = pri;
-            double suma = 0;
-            int mayor = actual.Dato;
-
-            while (actual != null)
-            {
-                cantidad++;
-                suma += actual.Dato;
-                if (actual.Dato > mayor) mayor = actual.Dato;
-                actual = actual.Siguiente;
-            }
-            MessageBox.Show("La cola tiene: " + cantidad + "elementos " + "\nel mayor es: " + mayor);
-        }*/
-
         public double Vistazo()
         {
             if (pri == null)
             {
                 Console.WriteLine("Cola vacía");
+                return -1; //devuelve un valor indicativo de que la cola está vacía;
             }
-            else pri.Estatura;
+            else
+            {
+                Console.WriteLine("Primer elemento: {0} ", pri.Estatura);
+            }
             return pri.Estatura;
         }
         public double Final()
         {
+            if (pri == null)
+            {
+                Console.WriteLine("Cola vacía");
+                return -1; //devuelve un valor indicativo de que la cola está vacía;
+            }
+            else
+            {
+                Console.WriteLine("Ultimo elemento: {0}", ulti.Estatura);
+            }
             return ulti.Estatura;
         }
         public void Limpiar()
         {
-            pri = null;
-            ulti = null;
-            cantidad = 0;
+            if (pri != null)
+            {
+                pri = null;
+                ulti = null;
+                cantidad = 0;
+                Console.WriteLine("La cola se limpió.");
+            }
+            else Console.WriteLine("Cola vacía.");
         }
 
     }

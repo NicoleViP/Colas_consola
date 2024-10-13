@@ -34,27 +34,27 @@ namespace Colas_consola
 
                 switch (op)
                 {
-                    case 1: InsertarEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 2: BuscarEdad(); Console.ReadKey(); Console.Clear(); break;                   
-                    case 3: ModificarEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 4: EliminarEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 5: ListarEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 6: ContarEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 7: VistazoEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 8: FinalEdad(); Console.ReadKey(); Console.Clear(); break;
-                    case 9: LimpiarEdad(); Console.ReadKey(); Console.Clear(); break;
+                    case 1: InsertarEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 2: BuscarEstatura(); Console.ReadKey(); Console.Clear(); break;                   
+                    case 3: ModificarEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 4: EliminarEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 5: ListarEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 6: ContarEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 7: VistazoEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 8: FinalEstatura(); Console.ReadKey(); Console.Clear(); break;
+                    case 9: LimpiarEstatura(); Console.ReadKey(); Console.Clear(); break;
                     case 10: Console.WriteLine("Saliendo del programa."); break;
-                    default: Console.WriteLine("Ingrese una opcion valida."); return;
+                    default: Console.WriteLine("Ingrese una opcion valida."); Console.ReadKey(); Console.Clear(); break;
                 }
             } while (op != 10);
         }
-        public static void InsertarEdad()
+        public static void InsertarEstatura()
         {
             Console.Write("Ingrese la estatura: ");
             double esta = double.Parse(Console.ReadLine());
             lacola.Insertar(esta);
         }
-        public static void BuscarEdad()
+        public static void BuscarEstatura()
         {
             Console.Write("Ingrese la estatura a buscar: ");
             double esta = double.Parse(Console.ReadLine());
@@ -67,7 +67,7 @@ namespace Colas_consola
                 Console.Write("Estatura no encontrada."); 
             }   
         }
-        public static void ModificarEdad()
+        public static void ModificarEstatura()
         {
                 Console.Write("Ingrese estatura a modificar: ");
                 double esta = double.Parse(Console.ReadLine());
@@ -79,32 +79,30 @@ namespace Colas_consola
             }
             else Console.WriteLine("La estatura ingresada es incorrecta o no existe. Ingrese nuevamente.");        
         }
-        public static void EliminarEdad()
-        {
-            Console.Write("Ingrese estatura a eliminar: ");
-            double esta = double.Parse(Console.ReadLine());
-            lacola.Eliminar(esta);
-            Console.WriteLine("Estatura eliminada.");
+        public static void EliminarEstatura()
+        {              
+            lacola.Eliminar();
         }
-        public static void ListarEdad()
+        public static void ListarEstatura()
         {
             lacola.Listar();
         }
-        public static void ContarEdad()
+        public static void ContarEstatura()
         {
             Console.WriteLine("La cola tiene " + lacola.Contar() + " elementos.");
         }
-        public static void VistazoEdad()
+        public static void VistazoEstatura()
         {
             lacola.Vistazo();
         }
-        public static void FinalEdad()
+        public static void FinalEstatura()
         {
-            lacola.Final();
+             lacola.Final();
         }
-        public static void LimpiarEdad()
+        public static void LimpiarEstatura()
         {
             lacola.Limpiar();
+            
         }
     }
 }
